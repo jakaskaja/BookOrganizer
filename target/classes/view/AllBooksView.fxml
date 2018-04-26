@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #FEC500;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.pwn.reaktor.controller.AllBooksController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <GridPane>
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Wszystkie książki" textFill="#001824" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Helvetica Neue Bold Italic" size="43.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/open_book.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/open_book.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <GridPane maxHeight="-Infinity" prefHeight="200.0" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="tf_author" alignment="CENTER" prefHeight="30.0" style="-fx-background-color: #ffffff;" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="tf_title" alignment="CENTER" prefHeight="30.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <ComboBox fx:id="cmb_type" maxWidth="1.7976931348623157E308" style="-fx-background-color: #ffffff;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="cmb_rate" maxWidth="1.7976931348623157E308" style="-fx-background-color: #ffffff;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="cmb_status" maxWidth="1.7976931348623157E308" style="-fx-background-color: #ffffff;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <Label alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Autor" textFill="#001824">
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Tytuł" textFill="#001824" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Typ" textFill="#001824" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Ocena" textFill="#001824" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Status" textFill="#001824" GridPane.columnIndex="4">
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="btn_search" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#SearchAction" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #003D50;" text="WYSZUKAJ" textFill="WHITE">
+                     <font>
+                        <Font name="Helvetica Neue Bold Italic" size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="100.0" right="40.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="btn_clear" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ClearAction" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #003D50;" text="WYCZYŚĆ" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Helvetica Neue Bold Italic" size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="40.0" right="100.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+      <GridPane GridPane.rowIndex="2">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TableView fx:id="table_books" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <columns>
+                  <TableColumn fx:id="col_id" prefWidth="50.0" text="ID" />
+                  <TableColumn fx:id="col_author" prefWidth="100.0" text="AUTOR" />
+                  <TableColumn fx:id="col_title" prefWidth="100.0" text="TYTUŁ" />
+                  <TableColumn fx:id="col_type" prefWidth="100.0" text="TYP" />
+                  <TableColumn fx:id="col_description" prefWidth="160.0" text="OPIS" />
+                  <TableColumn fx:id="col_rate" minWidth="0.0" prefWidth="75.0" text="OCENA" />
+                  <TableColumn fx:id="col_link" prefWidth="100.0" text="LINK" />
+                  <TableColumn fx:id="col_status" prefWidth="100.0" text="STATUS" />
+               </columns>
+            </TableView>
+         </children>
+      </GridPane>
+      <GridPane GridPane.rowIndex="3">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="40.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="50.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="40.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btn_back" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#BackAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Wróć" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Helvetica Neue Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_add" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#AddAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Dodaj książkę" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Helvetica Neue Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_exit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ExitAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Koniec" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Helvetica Neue Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</GridPane>
