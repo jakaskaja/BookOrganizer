@@ -8,11 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import pl.pwn.reaktor.Main;
 
 public class RestoreController {
 
+	@FXML
+    private ImageView img_end;
+	
     @FXML
     private TextField tf_mail;
 
@@ -32,6 +36,11 @@ public class RestoreController {
     @FXML
     void ResetMailAction(MouseEvent event) {
 
+    }
+    
+    @FXML
+    void endAction(MouseEvent event) {
+    	System.exit(0);
     }
 
 }

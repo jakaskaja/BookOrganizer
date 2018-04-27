@@ -10,14 +10,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import pl.pwn.reaktor.Main;
-import pl.pwn.reaktor.service.UserService;
+import pl.pwn.reaktor.service.LoginService;
 
 
 public class LoginController {
 
+	@FXML
+    private ImageView img_end;
+	
     @FXML
     private TextField tf_login;
 
@@ -67,9 +71,14 @@ public class LoginController {
 		Main.getPrimaryStage().setScene(scene);
     }
     
-    private UserService userService;
+    @FXML
+    void endAction(MouseEvent event) {
+    	System.exit(0);
+    }
+    
+    private LoginService userService;
     public void initialize() {
-    	userService = new UserService();
+    	userService = new LoginService();
     }
 
 }

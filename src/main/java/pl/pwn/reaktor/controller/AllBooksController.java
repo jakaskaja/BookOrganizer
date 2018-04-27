@@ -11,11 +11,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import pl.pwn.reaktor.Main;
 
 public class AllBooksController {
 
+	@FXML
+    private ImageView img_end;
+	
     @FXML
     private TextField tf_author;
 
@@ -38,10 +42,10 @@ public class AllBooksController {
     private Button btn_clear;
 
     @FXML
-    private TableView<Book> table_books;
+    private TableView<?> table_books;
 
     @FXML
-    private TableColumn<Book, Long> col_id;
+    private TableColumn<?, ?> col_id;
 
     @FXML
     private TableColumn<?, ?> col_author;
@@ -71,7 +75,7 @@ public class AllBooksController {
     private Button btn_add;
 
     @FXML
-    private Button btn_exit;
+    private Button btn_delete;
 
     @FXML
     void AddAction(MouseEvent event) throws IOException {
@@ -97,8 +101,8 @@ public class AllBooksController {
     }
 
     @FXML
-    void ExitAction(MouseEvent event) {
-    	System.exit(0);
+    void DeleteAction(MouseEvent event) {
+    	
     }
 
     @FXML
@@ -106,4 +110,8 @@ public class AllBooksController {
 
     }
 
+    @FXML
+    void endAction(MouseEvent event) {
+    	System.exit(0);
+    }
 }
