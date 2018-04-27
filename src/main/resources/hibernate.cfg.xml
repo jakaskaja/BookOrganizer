@@ -16,6 +16,7 @@
 		<!-- mapowanie encji na tabele i tabele na encje -->
 		<mapping class="pl.pwn.reaktor.model.User" />
 		<mapping class="pl.pwn.reaktor.model.VBooks" />
+		<mapping class="pl.pwn.reaktor.model.Book" />
 
 	</session-factory>
 </hibernate-configuration>

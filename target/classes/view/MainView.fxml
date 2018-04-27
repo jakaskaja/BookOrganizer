@@ -121,7 +121,7 @@
           <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #73021B;" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btn_logOut" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#logOutAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Wyloguj" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Helvetica Neue Bold" size="15.0" />
                </font>

@@ -1,6 +1,8 @@
 package pl.pwn.reaktor.controller;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -60,9 +62,14 @@ public class RegisterController {
 
     @FXML
     void CreateAction(MouseEvent event) {
+    	boolean isValidEmail = validateMail();
     	if (isNotCompleted()) {
     		showAlertNotCompleted();
-    	}else if (!(ps_pass.getText().equals(ps_pass2.getText()))){
+    	}else if(!isValidEmail){
+    		errorInvalidMail();
+			tf_mail.clear();	
+    	}
+    	else if (!(ps_pass.getText().equals(ps_pass2.getText()))){
     		alertWrongPass();
     		ps_pass.clear();
     		ps_pass2.clear();
@@ -72,6 +79,15 @@ public class RegisterController {
     	userService.saveUser(user);
     	}
     }
+
+	private void errorInvalidMail() {
+		Alert error = new Alert(AlertType.ERROR);
+		error.setTitle("Błędny adres mail");
+		error.setHeaderText("Błąd");
+		error.setContentText(
+				"Błędny adres mail: " + tf_mail.getText() + "\n" + "Proszę podać poprawny adres mail.");
+		error.show();
+	}
     @FXML
     void endAction(MouseEvent event) {
     	System.exit(0);
@@ -125,6 +141,14 @@ public class RegisterController {
 		alertConfirm.setHeaderText("Sukces!");
 		alertConfirm.setContentText("Pomyślnie dodano nowego użytkownika");
 		alertConfirm.show();
+	}
+	
+	private boolean validateMail() {
+		String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(tf_mail.getText());
+		boolean isValidEmail = matcher.matches();
+		return isValidEmail;
 	}
 
 }

@@ -33,5 +33,4 @@ public class LoginService {
 		System.out.println("Zalogowano użytkownika: "+user.getName()+" "+user.getLastName());
 		return true;
 	}
-
 }

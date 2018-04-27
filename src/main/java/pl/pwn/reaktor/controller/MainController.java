@@ -26,8 +26,10 @@ public class MainController {
     }
 
     @FXML
-    void addAction(MouseEvent event) {
-
+    void addAction(MouseEvent event) throws IOException {
+    	Parent parent = FXMLLoader.load(getClass().getResource("/view/AddBookView.fxml"));
+		Scene scene = new Scene(parent);
+		Main.getPrimaryStage().setScene(scene);
     }
 
     @FXML
