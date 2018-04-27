@@ -2,6 +2,7 @@ package pl.pwn.reaktor.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,16 +10,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import pl.pwn.reaktor.Main;
 import pl.pwn.reaktor.model.Book;
+import pl.pwn.reaktor.model.BookFilter;
 import pl.pwn.reaktor.service.BookService;
 
 public class AllBooksController {
@@ -108,12 +112,36 @@ public class AllBooksController {
 
     @FXML
     void DeleteAction(MouseEvent event) {
+    	if (Objects.isNull(table_books.getSelectionModel())
+				|| Objects.isNull(table_books.getSelectionModel().getSelectedItem())) {
+
+			Alert error = new Alert(AlertType.ERROR);
+			error.setHeaderText("Błąd");
+			error.setContentText("Wybierz książkę do usunięcia");
+			error.setTitle("Nie wybrano książki");
+			error.show();
+			return;
+		}
+    	int id = table_books.getSelectionModel().getSelectedItem().getId();
+    	bookService.delete(id);
     	
+    	fillTableData();
     }
 
     @FXML
     void SearchAction(MouseEvent event) {
-
+    	String authorValue = tf_author.getText();
+    	String titleValue = tf_title.getText();
+    	String rateValue = cmb_rate.getValue();
+    	String statusValue = cmb_status.getValue();
+    	String typeValue = cmb_type.getValue();
+    	
+    	BookFilter filter = new BookFilter(authorValue, titleValue, typeValue, rateValue, statusValue);
+    	List<Book> bookList = bookService.bookFilter(filter);
+    	
+    	ObservableList<Book> bookData = FXCollections.observableArrayList(bookList);
+    	table_books.setItems(null);
+    	table_books.setItems(bookData);
     }
 
     @FXML

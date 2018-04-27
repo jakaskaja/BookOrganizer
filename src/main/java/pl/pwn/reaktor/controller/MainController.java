@@ -16,7 +16,13 @@ public class MainController {
     private Button btn_all;
 
     @FXML
-    private Button btn_add;
+    private Button btn_addBook;
+
+    @FXML
+    private Button btn_addFromFile;
+
+    @FXML
+    private Button btn_logOut;
 
     @FXML
     void AllBooksAction(MouseEvent event) throws IOException {
@@ -33,8 +39,20 @@ public class MainController {
     }
 
     @FXML
+    void addFromFileAction(MouseEvent event) {
+    	//dodawanie książki z pliku
+    }
+
+    @FXML
     void endAction(MouseEvent event) {
     	System.exit(0);
+    }
+
+    @FXML
+    void logOutAction(MouseEvent event) throws IOException {
+    	Parent parent = FXMLLoader.load(getClass().getResource("/view/LoginView.fxml"));
+		Scene scene = new Scene(parent);
+		Main.getPrimaryStage().setScene(scene);
     }
 
 }

@@ -44,7 +44,7 @@ public class LoginController {
     	boolean isLog = userService.login(mail, password);
     	
     	if(isLog) {
-    		Parent parent = FXMLLoader.load(getClass().getResource("/view/AllBooksView.fxml"));
+    		Parent parent = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
     		Scene scene = new Scene(parent);
     		Main.getPrimaryStage().setScene(scene);
     	}else {
