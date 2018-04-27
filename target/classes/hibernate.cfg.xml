@@ -14,7 +14,8 @@
 			create-drop -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- mapowanie encji na tabele i tabele na encje -->
-		<mapping class="pl.pwn.reaktor.model.Users" />
+		<mapping class="pl.pwn.reaktor.model.User" />
+		<mapping class="pl.pwn.reaktor.model.VBooks" />
 
 	</session-factory>
 </hibernate-configuration>

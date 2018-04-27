@@ -14,7 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import pl.pwn.reaktor.Main;
-import pl.pwn.reaktor.model.Users;
+import pl.pwn.reaktor.model.User;
 import pl.pwn.reaktor.service.UserService;
 
 public class RegisterController {
@@ -55,36 +55,23 @@ public class RegisterController {
 
     @FXML
     void ClearAction(MouseEvent event) {
-    	tf_name.clear();
-    	tf_last.clear();
-    	tf_mail.clear();
-    	ps_pass.clear();
-    	ps_pass2.clear();
+    	clearForm();
     }
 
-    private Users createUser() {
-    	String name = tf_name.getText();
-    	String last = tf_last.getText();
-    	String mail = tf_mail.getText();
-    	String pass = ps_pass.getText();
-    	
-    	return new Users(mail, name, last, pass, 2);
-    }
-    
     @FXML
     void CreateAction(MouseEvent event) {
     	if (isNotCompleted()) {
     		showAlertNotCompleted();
-    	}else{
-    		
-    		
-    		
-    	}
+    	}else if (!(ps_pass.getText().equals(ps_pass2.getText()))){
+    		alertWrongPass();
+    		ps_pass.clear();
+    		ps_pass2.clear();
+    		}else {	
     	UserService userService = new UserService();
-    	Users user = createUser();
-    	userService.save(user);
+    	User user = createUser();
+    	userService.saveUser(user);
+    	}
     }
-    
     @FXML
     void endAction(MouseEvent event) {
     	System.exit(0);
@@ -105,5 +92,39 @@ public class RegisterController {
     			|| "".equals(ps_pass.getText()) 
     			|| "".equals(ps_pass2.getText());
     }
+    
+    private void clearForm() {
+		tf_name.clear();
+    	tf_last.clear();
+    	tf_mail.clear();
+    	ps_pass.clear();
+    	ps_pass2.clear();
+	}
+    
+    private User createUser() {
+    	String name = tf_name.getText();
+    	String last = tf_last.getText();
+    	String mail = tf_mail.getText();
+    	String pass = ps_pass.getText();
+    		clearForm();
+        	alertConfirmation();
+        	return new User(mail, name, last, pass, 2);
+    }
+    
+    private void alertWrongPass() {
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Błędne hasło");
+		alert.setHeaderText("Podane hasła nie są jednakowe");
+		alert.setContentText("Ponownie wpisz hasło");
+		alert.show();
+	}
+
+	private void alertConfirmation() {
+		Alert alertConfirm = new Alert(AlertType.CONFIRMATION);
+		alertConfirm.setTitle("Dodawanie użytkownika");
+		alertConfirm.setHeaderText("Sukces!");
+		alertConfirm.setContentText("Pomyślnie dodano nowego użytkownika");
+		alertConfirm.show();
+	}
 
 }

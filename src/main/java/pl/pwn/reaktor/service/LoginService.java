@@ -6,7 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import pl.pwn.reaktor.model.Users;
+import pl.pwn.reaktor.model.User;
 import pl.pwn.reaktor.util.HibernateUtil;
 
 
@@ -19,17 +19,17 @@ public class LoginService {
 		
 		Transaction transaction = session.beginTransaction();
 		
-		Query query = session.createQuery("FROM Users WHERE mail=:mail and password=:password");
+		Query query = session.createQuery("FROM User WHERE mail=:mail and password=:password");
 		query.setString("mail", mail);
 		query.setString("password", password);
-		List<Users> list = query.list();
+		List<User> list = query.list();
 		transaction.commit();
 		session.close();
 		
 		if (list.isEmpty()) {
 			return false;
 		}
-		Users user = list.get(0);
+		User user = list.get(0);
 		System.out.println("Zalogowano użytkownika: "+user.getName()+" "+user.getLastName());
 		return true;
 	}
