@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,12 +17,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import pl.pwn.reaktor.Main;
 import pl.pwn.reaktor.model.Book;
 import pl.pwn.reaktor.model.BookFilter;
@@ -163,8 +172,151 @@ public class AllBooksController {
 		cmb_status.setItems(statusList);
 		
 		fillTableData();
-		setCallValue();
+		setCellValue();
+		editCells();
+		
+		table_books.setEditable(true);
 	}
+	private void editCells() {
+		editAuthorCell();
+		editTitleCell();
+		editLinkCell();
+		editDescriptionCell();
+		editRateCell();
+		editTypeCell();
+		editStatusCell();
+	}
+
+	private void editRateCell() {
+		col_rate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Book,String>, ObservableValue<String>>() {
+			
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Book, String> param) {
+				Book book = param.getValue();
+				
+				String rate = book.getRate();
+				return new SimpleObjectProperty<String>(rate);
+			}
+		});
+		
+		col_rate.setCellFactory(ComboBoxTableCell.forTableColumn(rateList));
+		col_rate.setOnEditCommit((CellEditEvent<Book, String> event) -> {
+			TablePosition<Book, String> pos = event.getTablePosition();
+
+			String newRate = event.getNewValue();
+			int row = pos.getRow();
+			Book book = event.getTableView().getItems().get(row);
+			book.setRate(newRate);
+			updateCell(book);
+		});
+	}
+	
+	private void editTypeCell() {
+		col_type.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Book,String>, ObservableValue<String>>() {
+			
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Book, String> param) {
+				Book book = param.getValue();
+				
+				String type = book.getType();
+				return new SimpleObjectProperty<String>(type);
+			}
+		});
+		
+		col_type.setCellFactory(ComboBoxTableCell.forTableColumn(typeList));
+		col_type.setOnEditCommit((CellEditEvent<Book, String> event) -> {
+			TablePosition<Book, String> pos = event.getTablePosition();
+
+			String newType = event.getNewValue();
+			int row = pos.getRow();
+			Book book = event.getTableView().getItems().get(row);
+			book.setType(newType);
+			updateCell(book);
+		});
+	}
+	
+	private void editStatusCell() {
+		col_status.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Book,String>, ObservableValue<String>>() {
+			
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Book, String> param) {
+				Book book = param.getValue();
+				
+				String status = book.getStatus();
+				return new SimpleObjectProperty<String>(status);
+			}
+		});
+		
+		col_status.setCellFactory(ComboBoxTableCell.forTableColumn(statusList));
+		col_status.setOnEditCommit((CellEditEvent<Book, String> event) -> {
+			TablePosition<Book, String> pos = event.getTablePosition();
+
+			String newStatus = event.getNewValue();
+			int row = pos.getRow();
+			Book book = event.getTableView().getItems().get(row);
+			book.setStatus(newStatus);
+			updateCell(book);
+		});
+	}
+
+
+	private void editAuthorCell() {
+		col_author.setCellFactory(TextFieldTableCell.forTableColumn());
+		col_author.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Book,String>>() {
+
+			@Override
+			public void handle(CellEditEvent<Book, String> e) {
+				((Book)e.getTableView().getItems().get(e.getTablePosition().getRow())).setAuthor(e.getNewValue());
+				
+				Book selectedBook = table_books.getSelectionModel().getSelectedItem();
+				updateCell(selectedBook);
+				}	
+		});
+	}
+	
+	private void editTitleCell() {
+		col_title.setCellFactory(TextFieldTableCell.forTableColumn());
+		col_title.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Book,String>>() {
+
+			@Override
+			public void handle(CellEditEvent<Book, String> e) {
+				((Book)e.getTableView().getItems().get(e.getTablePosition().getRow())).setTitle(e.getNewValue());
+				
+				Book selectedBook = table_books.getSelectionModel().getSelectedItem();
+				updateCell(selectedBook);
+				}	
+		});
+	}
+
+	private void editLinkCell() {
+		col_link.setCellFactory(TextFieldTableCell.forTableColumn());
+		col_link.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Book,String>>() {
+
+			@Override
+			public void handle(CellEditEvent<Book, String> e) {
+				((Book)e.getTableView().getItems().get(e.getTablePosition().getRow())).setLink(e.getNewValue());
+				
+				Book selectedBook = table_books.getSelectionModel().getSelectedItem();
+				updateCell(selectedBook);
+				}	
+		});
+	}
+	
+	private void editDescriptionCell() {
+		col_description.setCellFactory(TextFieldTableCell.forTableColumn());
+		col_description.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Book,String>>() {
+
+			@Override
+			public void handle(CellEditEvent<Book, String> e) {
+				((Book)e.getTableView().getItems().get(e.getTablePosition().getRow())).setDescription(e.getNewValue());
+				
+				Book selectedBook = table_books.getSelectionModel().getSelectedItem();
+				updateCell(selectedBook);
+				}	
+		});
+	}
+
+
 	BookService bookService;
 	private void fillTableData() {
     	bookService = new BookService();
@@ -174,15 +326,18 @@ public class AllBooksController {
     	table_books.setItems(data);
     }
 	
-	private void setCallValue() {
+	private void setCellValue() {
 		col_id.setCellValueFactory(new PropertyValueFactory<>("Id"));
-		col_author.setCellValueFactory(new PropertyValueFactory<>("Autor"));
-		col_description.setCellValueFactory(new PropertyValueFactory<>("Opis"));
+		col_author.setCellValueFactory(new PropertyValueFactory<>("Author"));
+		col_description.setCellValueFactory(new PropertyValueFactory<>("Description"));
 		col_link.setCellValueFactory(new PropertyValueFactory<>("Link"));
-		col_rate.setCellValueFactory(new PropertyValueFactory<>("Ocena"));
+		col_rate.setCellValueFactory(new PropertyValueFactory<>("Rate"));
 		col_status.setCellValueFactory(new PropertyValueFactory<>("Status"));
-		col_title.setCellValueFactory(new PropertyValueFactory<>("Tytuł"));
-		col_type.setCellValueFactory(new PropertyValueFactory<>("Gatunek"));
+		col_title.setCellValueFactory(new PropertyValueFactory<>("Title"));
+		col_type.setCellValueFactory(new PropertyValueFactory<>("Type"));
 		
+	}
+	private void updateCell(Book selectedBook) {
+		bookService.update(selectedBook);
 	}
 }

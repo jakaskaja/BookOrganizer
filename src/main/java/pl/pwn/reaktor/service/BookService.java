@@ -82,5 +82,14 @@ public class BookService {
 		session.close();
 		return books;
 	}
+	
+	public void update(Book selectedItem) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+
+		session.saveOrUpdate(selectedItem);
+		transaction.commit();
+		session.close();
+	}
 
 }
