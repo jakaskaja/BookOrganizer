@@ -94,7 +94,7 @@
                   <Font name="Helvetica Neue Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btn_resetMail" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ResetMailAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Zresetuj hasło" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button fx:id="btn_resetMail" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ResetMailAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Przypomnij hasło" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Helvetica Neue Bold" size="15.0" />
                </font>

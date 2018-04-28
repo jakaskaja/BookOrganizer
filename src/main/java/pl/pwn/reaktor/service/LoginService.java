@@ -33,4 +33,23 @@ public class LoginService {
 		System.out.println("Zalogowano użytkownika: "+user.getName()+" "+user.getLastName());
 		return true;
 	}
+	public String getUserPass(String mail) {
+		Session session = HibernateUtil
+				.getSessionFactory()
+				.openSession();
+		
+		Transaction trx = session.beginTransaction();
+		
+		Query query = session.createQuery("FROM User WHERE mail=:mail");
+		query.setString("mail", mail);
+		List<User> list = query.list();
+		trx.commit();
+		session.close();
+		
+		if (list.isEmpty()) {
+			return "";
+		}
+		User user = list.get(0);
+		return user.getPassword();
+	}
 }
