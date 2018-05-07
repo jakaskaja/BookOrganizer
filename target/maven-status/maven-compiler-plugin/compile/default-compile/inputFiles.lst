@@ -2,8 +2,8 @@
 /Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/Main.java
 /Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/controller/MainController.java
 /Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/controller/AddBookController.java
-/Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/model/VBooks.java
 /Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/controller/RegisterController.java
+/Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/model/BookFilter.java
 /Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/util/HibernateUtil.java
 /Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/service/LoginService.java
 /Users/katarzynaformicka/Desktop/BooksOrganizer/src/main/java/pl/pwn/reaktor/model/User.java

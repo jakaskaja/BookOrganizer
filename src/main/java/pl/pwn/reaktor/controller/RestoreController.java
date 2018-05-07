@@ -50,11 +50,10 @@ public class RestoreController {
     	if("".equals(mail) || "".equals(pass)) {
     		alertEmptyTextField();
     	}else {
+    		alertConfirmation();
     		MailService mailService = new MailService();
     		try {
-				mailService.sendMail(mail, "Przypomnienie hasła", "Wysłano prośbę o zmianę hasła. Twoje hasło to: "+pass);
-				tf_mail.clear();
-				alertConfirmation();
+				mailService.sendMail(mail, "Przypomnienie hasła", "Wysłano prośbę o przypomnienie hasła. Twoje hasło to: "+pass);
 				goToLoginView();
 				
 			} catch (MessagingException e) {
@@ -85,7 +84,7 @@ public class RestoreController {
 		Alert alertConfirm = new Alert(AlertType.CONFIRMATION);
 		alertConfirm.setTitle("Przypomnienie hasła");
 		alertConfirm.setHeaderText("Sukces!");
-		alertConfirm.setContentText("Twoje hasło zostało wysłane na adres: "+tf_mail.getText());
+		alertConfirm.setContentText("Twoje hasło zostało wysłane na adres: " +tf_mail.getText());
 		alertConfirm.show();
 	}
     

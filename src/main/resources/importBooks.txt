@@ -1,0 +1,5 @@
+Katarzyna Bonda;Pochłaniacz;kryminał;xxx;4;http://www.empik.com/cztery-zywioly-tom-1-pochlaniacz-bonda-katarzyna,p1095362738,ksiazka-p;do przeczytania/
+Dmitry Glukhovsky;Metro 2033;fantastyka;;2;http://www.empik.com/metro-2033-glukhovsky-dmitry,p1113760542,ksiazka-p;do przeczytania/
+Neil Gaiman;Amerykańscy bogowie;fantastyka;opis;4;http://www.empik.com/amerykanscy-bogowie-gaiman-neil,p1131255406,ksiazka;do przeczytania/
+Remigiusz Mróz;Nieodnaleziona;kryminał;wwwwwww;3;http://www.empik.com/nieodnaleziona-mroz-remigiusz,p1172278516,ksiazka-p;w trakcie czytania/
+Michelle Frances;Ta dziewczyna;thriller;jakiś opis;1;http://www.empik.com/nieodpowiednia-dziewczyna-frances-michelle,p1179968478,ksiazka-p;przeczytana

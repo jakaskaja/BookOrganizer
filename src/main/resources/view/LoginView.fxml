@@ -36,9 +36,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Your Book Organizer" textFill="#001824" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Your Books Organizer" textFill="#001824" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font name="Helvetica Neue Bold Italic" size="42.0" />
+                  <Font name="Helvetica Neue Bold Italic" size="40.0" />
                </font>
             </Label>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">

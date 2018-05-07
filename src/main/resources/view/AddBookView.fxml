@@ -122,12 +122,12 @@
                   <Insets bottom="10.0" top="10.0" />
                </GridPane.margin>
             </TextArea>
-            <Button fx:id="btn_add" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#AddBookAction" prefHeight="40.0" style="-fx-background-color: #003D50;" text="DODAJ" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="btn_add" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#addBookAction" prefHeight="40.0" style="-fx-background-color: #003D50;" text="DODAJ" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Helvetica Neue Bold Italic" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btn_addFromFile" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#AddFromFileAction" prefHeight="40.0" style="-fx-background-color: #003D50;" text="DODAJ Z PLIKU" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="btn_addFromFile" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#addFromFileAction" prefHeight="40.0" style="-fx-background-color: #003D50;" text="DODAJ Z PLIKU" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="Helvetica Neue Bold Italic" size="15.0" />
                </font>
@@ -150,17 +150,17 @@
           <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btn_back" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#BackAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Wróć" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btn_back" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#backAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Wróć" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Helvetica Neue Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btn_clear" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ClearAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Wyczyść" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button fx:id="btn_clear" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clearAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Wyczyść" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Helvetica Neue Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btn_all" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#AllBooksAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Pokaż wszystkie" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <Button fx:id="btn_all" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#allBooksAction" prefHeight="40.0" style="-fx-background-color: #73021B;" text="Pokaż wszystkie" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <font>
                   <Font name="Helvetica Neue Bold" size="15.0" />
                </font>

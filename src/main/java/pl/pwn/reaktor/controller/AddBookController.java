@@ -1,7 +1,12 @@
 package pl.pwn.reaktor.controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.StringTokenizer;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import pl.pwn.reaktor.Main;
 import pl.pwn.reaktor.model.Book;
 import pl.pwn.reaktor.service.BookService;
@@ -63,7 +69,7 @@ public class AddBookController {
 	private Button btn_all;
 
 	@FXML
-	void AddBookAction(MouseEvent event) {
+	void addBookAction(MouseEvent event) {
 		if (isNotCompleted()) {
 			showAlertNotCompleted();
 		} else {
@@ -74,26 +80,53 @@ public class AddBookController {
 	}
 
 	@FXML
-	void AddFromFileAction(MouseEvent event) {
-		// dodawanie z pliku
+	void addFromFileAction(MouseEvent event) throws IOException {
+		FileChooser fileChooser = new FileChooser();
+		File file = fileChooser.showOpenDialog(null);
+		readBooksFromFile(file);
+		}
+
+	private void readBooksFromFile(File file) throws FileNotFoundException, IOException {
+		BookService bookService = new BookService();
+		
+		Book newBook;
+		String line;
+		StringTokenizer stringTokenizer;
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+		
+		while(true) {
+			line = bufferedReader.readLine();
+			if (line.equals(null)) {
+				break;
+			}
+			line = line.trim();
+			stringTokenizer = new StringTokenizer(line, "/");
+			newBook = new Book(stringTokenizer.nextToken().trim(), stringTokenizer.nextToken().trim(), stringTokenizer.nextToken().trim(), stringTokenizer.nextToken().trim(), stringTokenizer.nextToken().trim(), stringTokenizer.nextToken().trim(), stringTokenizer.nextToken().trim());
+			
+			bookService.addNewBook(newBook);
+			}
+		bufferedReader.close();
 	}
+		
+		
+	
 
 	@FXML
-	void AllBooksAction(MouseEvent event) throws IOException {
+	void allBooksAction(MouseEvent event) throws IOException {
 		Parent parent = FXMLLoader.load(getClass().getResource("/view/AllBooksView.fxml"));
 		Scene scene = new Scene(parent);
 		Main.getPrimaryStage().setScene(scene);
 	}
 
 	@FXML
-	void BackAction(MouseEvent event) throws IOException {
+	void backAction(MouseEvent event) throws IOException {
 		Parent parent = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
 		Scene scene = new Scene(parent);
 		Main.getPrimaryStage().setScene(scene);
 	}
 
 	@FXML
-	void ClearAction(MouseEvent event) {
+	void clearAction(MouseEvent event) {
 		clearForm();
 	}
 
